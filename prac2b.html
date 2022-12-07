@@ -1,0 +1,35 @@
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <p>Click on the header of table to sort data</p>
+      <table>
+        <tr>
+          <th ng-click="orderByMe('name')">NAME</th>
+          <th ng-click="orderByMe('country')">COUNTRY</th>
+        </tr>
+        <tr ng-repeat="x in names | orderBy:myOrderBy">
+          <td>{{x.name}}</td>
+          <td>{{x.country}}</td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      var app = angular.module("myApp", []);
+      app.controller("myCtrl", function ($scope) {
+        $scope.names = [
+          { name: "riddhesh", country: "india" },
+          { name: "siddhesh", country: "south korea" },
+          { name: "shriyash", country: "china" },
+          { name: "ishaan", country: "japan" },
+          { name: "rohit", country: "brazil" },
+          { name: "vedant", country: "north india" },
+          { name: "querty", country: "india" },
+        ];
+        $scope.orderByMe = function (x) {
+          $scope.myOrderBy = x;
+        };
+      });
+    </script>
+  </body>
+</html>

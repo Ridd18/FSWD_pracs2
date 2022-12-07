@@ -1,0 +1,31 @@
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+      <p>Type A Letter In The Input Field to find from the given array</p>
+      <p><input type="text" ng-model="test" /></p>
+      <ul>
+        <li ng-repeat="x in names | filter:test">{{x}}</li>
+      </ul>
+    </div>
+    <script>
+      var app = angular.module("myApp", []);
+      app.controller("myCtrl", function ($scope) {
+        $scope.names = [
+          "Rohit",
+          "Shriyash",
+          "Nelson",
+          "Ishaan",
+          "Mihika",
+          "Rigved",
+          "Anisha",
+          "Gustav",
+          "Bheem",
+          "Riddhesh",
+          "Krish",
+          "Laxman",
+        ];
+      });
+    </script>
+  </body>
+</html>
